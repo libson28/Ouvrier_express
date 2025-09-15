@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtisanConnect - Trouvez l'artisan parfait près de chez vous</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#57b5e7',
+                        secondary: '#8dd3c7'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+
+                <!-- Logo -->
+                <div class="flex items-center space-x-8">
+                    <div class="flex text-2xl  text-primary">
+                        <a href="./index.html" class="flex items-center space-x-2">
+                            <img src="logo.gif" style="width: 40px;" alt="">
+                            <span class="bg-gradient-to-r from-blue-900 to-orange-500 bg-clip-text text-transparent 
+                                text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold truncate">
+                                Ouvrier-Express
+                            </span>
+
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- ✅ Menu desktop centré -->
+                <nav class="hidden md:flex space-x-6 absolute left-1/2 transform -translate-x-1/2">
+                    <a href="./index.html" class="text-gray-700 hover:text-primary transition-colors"
+                        style="color: rgb(0, 140, 255);">Accueil</a>
+                    <a href="./cyber.html" class="text-gray-700 hover:text-primary transition-colors">Nos Profils</a>
+                    <a href="./coworking.html" class="text-gray-700 hover:text-primary transition-colors">Comment ça
+                        marche</a>
+                    <a href="./gaming.html" class="text-gray-700 hover:text-primary transition-colors">Autres
+                        Services</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Burger -->
+                    <button id="burgerBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-menu-line"></i>
+                        </div>
+                    </button>
+
+                    <!-- Connexion -->
+                    <button onclick="window.location.href='./sign.html'"
+                        class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">
+                        Se connecter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ✅ Menu mobile hors du container -->
+    <nav id="mobileMenu"
+        class="hidden fixed top-16 left-0 w-full bg-white shadow-lg flex-col items-start space-y-6 px-6 py-4 z-50 md:hidden">
+        <a href="./index.html" class="text-gray-700 hover:text-primary transition-colors"
+            style="color: rgb(0, 140, 255);">Accueil</a>
+        <a href="./cyber.html" class="text-gray-700 hover:text-primary transition-colors">Nos Profils</a>
+        <a href="./coworking.html" class="text-gray-700 hover:text-primary transition-colors">Comment ça marche</a>
+        <a href="./gaming.html" class="text-gray-700 hover:text-primary transition-colors">Autres Services</a>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const burgerBtn = document.getElementById("burgerBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            burgerBtn.addEventListener("click", function () {
+                mobileMenu.classList.toggle("hidden");
+                mobileMenu.classList.toggle("flex");
+            });
+        });
+    </script>
+
+
+    <main>
+        <section class="relative py-20 hero"
+            style="background-image: url('banner.jpg'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent"></div>
+            <div class="relative max-w-7xl mx-auto px-6">
+                <div class="max-w-2xl text-primary">
+                    <h1 class="text-5xl font-bold text-primary-900 mb-6 ">Nos Profils</h1>
+                    <p class="text-xl text-gray-600">
+                        Chez Ouvrier_Express, c'est le professionalisme avec des équipements de pointe et des ouvriers
+                        expérimentés
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- filtre -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+
+                <!-- Bouton pour ouvrir le menu filtres sur mobile -->
+                <div class="flex justify-between items-center mb-4 lg:hidden">
+                    <h2 class="text-xl font-bold text-gray-900">Filtres</h2>
+                    <button id="toggleFilters" class="px-4 py-2 bg-primary text-white rounded-lg">
+                        <i class="ri-filter-3-line mr-1"></i> Filtres
+                    </button>
+                </div>
+                <script>
+                    // Toggle du menu filtres sur mobile
+                    document.getElementById("toggleFilters").addEventListener("click", () => {
+                        const filters = document.getElementById("filtersMenu");
+                        filters.classList.toggle("hidden");
+                    }); 
+                </script>
+                <!-- Aside Filtres -->
+                <aside id="filtersMenu" class="hidden lg:block w-full lg:w-80 bg-white rounded-lg shadow-sm p-6 h-fit">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Filtres</h3>
+                    <div class="space-y-6">
+                        <div> <label class="block text-sm font-medium text-gray-700 mb-2">Métiers</label>
+                            <div class="space-y-2"> <label class="flex items-center"> <input type="checkbox"
+                                        class="hidden peer" data-filter="plomberie">
+                                    <div
+                                        class="w-4 h-4 border-2 border-gray-300 rounded peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+                                        <i
+                                            class="ri-check-line text-white text-xs opacity-0 peer-checked:opacity-100"></i>
+                                    </div> <span class="ml-2 text-sm text-gray-700">Plomberie</span>
+                                </label> <label class="flex items-center"> <input type="checkbox" class="hidden peer"
+                                        data-filter="electricite">
+                                    <div
+                                        class="w-4 h-4 border-2 border-gray-300 rounded peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+                                        <i
+                                            class="ri-check-line text-white text-xs opacity-0 peer-checked:opacity-100"></i>
+                                    </div> <span class="ml-2 text-sm text-gray-700">Électricité</span>
+                                </label> <label class="flex items-center"> <input type="checkbox" class="hidden peer"
+                                        data-filter="maconnerie">
+                                    <div
+                                        class="w-4 h-4 border-2 border-gray-300 rounded peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+                                        <i
+                                            class="ri-check-line text-white text-xs opacity-0 peer-checked:opacity-100"></i>
+                                    </div> <span class="ml-2 text-sm text-gray-700">Maçonnerie</span>
+                                </label> <label class="flex items-center"> <input type="checkbox" class="hidden peer"
+                                        data-filter="peinture">
+                                    <div
+                                        class="w-4 h-4 border-2 border-gray-300 rounded peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+                                        <i
+                                            class="ri-check-line text-white text-xs opacity-0 peer-checked:opacity-100"></i>
+                                    </div> <span class="ml-2 text-sm text-gray-700">Peinture</span>
+                                </label> <label class="flex items-center"> <input type="checkbox" class="hidden peer"
+                                        data-filter="menuiserie">
+                                    <div
+                                        class="w-4 h-4 border-2 border-gray-300 rounded peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+                                        <i
+                                            class="ri-check-line text-white text-xs opacity-0 peer-checked:opacity-100"></i>
+                                    </div> <span class="ml-2 text-sm text-gray-700">Menuiserie</span>
+                                </label> <label class="flex items-center"> <input type="checkbox" class="hidden peer"
+                                        data-filter="depanneur">
+                                    <div
+                                        class="w-4 h-4 border-2 border-gray-300 rounded peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+                                        <i
+                                            class="ri-check-line text-white text-xs opacity-0 peer-checked:opacity-100"></i>
+                                    </div> <span class="ml-2 text-sm text-gray-700">Dépanneur</span>
+                                </label> <label class="flex items-center"> <input type="checkbox" class="hidden peer"
+                                        data-filter="climatisation">
+                                    <div
+                                        class="w-4 h-4 border-2 border-gray-300 rounded peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+                                        <i
+                                            class="ri-check-line text-white text-xs opacity-0 peer-checked:opacity-100"></i>
+                                    </div> <span class="ml-2 text-sm text-gray-700">Réparateur clim</span>
+                                </label> <label class="flex items-center"> <input type="checkbox" class="hidden peer"
+                                        data-filter="chauffeur">
+                                    <div
+                                        class="w-4 h-4 border-2 border-gray-300 rounded peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+                                        <i
+                                            class="ri-check-line text-white text-xs opacity-0 peer-checked:opacity-100"></i>
+                                    </div> <span class="ml-2 text-sm text-gray-700">Chauffeur uber</span>
+                                </label> </div>
+                        </div>
+                        <div> <label class="flex items-center"> <input type="checkbox" class="hidden peer"
+                                    id="certifiedOnly">
+                                <div
+                                    class="w-4 h-4 border-2 border-gray-300 rounded peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+                                    <i class="ri-check-line text-white text-xs opacity-0 peer-checked:opacity-100"></i>
+                                </div> <span class="ml-2 text-sm text-gray-700">Profils certifiés uniquement</span>
+                            </label> </div>
+                    </div>
+                </aside>
+
+                <!-- Contenu principal -->
+                <div class="flex-1">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900">Artisans disponibles</h2>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm text-gray-600">Trier par :</span>
+                            <select id="sortSelect"
+                                class="px-3 py-1 bg-white border border-gray-300 rounded-lg text-sm hover:bg-gray-50 !rounded-button">
+                                <option value="relevance">Pertinence</option>
+                                <option value="price-asc">Prix croissant</option>
+                                <option value="price-desc">Prix décroissant</option>
+                                <option value="rating">Note</option>
+                                <option value="distance">Distance</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="artisanGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Cartes artisans générées dynamiquement -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="flex justify-center mt-8">
+                        <div id="paginationContainer" class="flex items-center space-x-2">
+                            <!-- Boutons générés par JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modal pour profil détaillé -->
+    <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div id="modalContent" class="p-6">
+                    <!-- Contenu du modal généré dynamiquement -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        // --- Pagination ---
+        let currentPage = 1;
+        const itemsPerPage = 9;
+
+        // Fonction pour afficher les artisans avec pagination
+        function displayPaginatedArtisans() {
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const artisansToShow = filteredArtisans.slice(start, end);
+
+            displayArtisans(artisansToShow);
+            renderPagination();
+        }
+
+        // Générer les boutons de pagination
+        function renderPagination() {
+            const paginationContainer = document.querySelector(".flex.justify-center.mt-8 .flex.items-center");
+            paginationContainer.innerHTML = "";
+
+            const totalPages = Math.ceil(filteredArtisans.length / itemsPerPage);
+
+            // Bouton précédent
+            const prevBtn = document.createElement("button");
+            prevBtn.className = "px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 !rounded-button";
+            prevBtn.innerHTML = `<i class="ri-arrow-left-line"></i>`;
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.addEventListener("click", () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    displayPaginatedArtisans();
+                }
+            });
+            paginationContainer.appendChild(prevBtn);
+
+            // Boutons de pages
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement("button");
+                pageBtn.className = `px-3 py-2 rounded-lg !rounded-button ${i === currentPage ? "bg-primary text-white" : "border border-gray-300 hover:bg-gray-50"}`;
+                pageBtn.textContent = i;
+                pageBtn.addEventListener("click", () => {
+                    currentPage = i;
+                    displayPaginatedArtisans();
+                });
+                paginationContainer.appendChild(pageBtn);
+            }
+
+            // Bouton suivant
+            const nextBtn = document.createElement("button");
+            nextBtn.className = "px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 !rounded-button";
+            nextBtn.innerHTML = `<i class="ri-arrow-right-line"></i>`;
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.addEventListener("click", () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    displayPaginatedArtisans();
+                }
+            });
+            paginationContainer.appendChild(nextBtn);
+        }
+
+
+        const artisans = [{
+            id: 1,
+            name: "Moussa Ba",
+            image: "data:image/jpeg;base64,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",
+            profession: "Plombier",
+            category: "plomberie",
+            rating: 4.5,
+            price: 45,
+            location: "Parcelle assainie",
+            distance: 2.5,
+            certified: true,
+            experience: "15 ans d'expérience",
+            description: "Plombier expérimenté avec plus de 15 ans d'expérience dans le domaine. Spécialisé dans les installations sanitaires, la réparation de fuites, le dépannage d'urgence et la rénovation de salles de bain.",
+            services: ["Installation sanitaire", "Réparation de fuites", "Dépannage d'urgence", "Rénovation salle de bain", "Débouchage canalisations", "Installation chauffe-eau"],
+            tarifs: {
+                horaire: "45 €/h",
+                deplacement: "Gratuit (-10 km)",
+                urgence: "65 €/h",
+                devis: "Gratuit"
+            }
+        }, {
+            id: 2,
+            name: "Saly diop",
+            profession: "Électricienne",
+            category: "electricite",
+            rating: 5.0,
+            price: 52,
+            location: "keur massar",
+            distance: 4.2,
+            certified: true,
+            experience: "12 ans d'expérience",
+            description: "Électricienne qualifiée spécialisée dans les installations électriques résidentielles et commerciales. Intervention rapide pour tous vos besoins électriques.",
+            services: ["Installation électrique", "Mise aux normes", "Dépannage électrique", "Éclairage", "Tableaux électriques", "Bornes de recharge"],
+            tarifs: {
+                horaire: "5000f/h",
+                deplacement: "1000f, (gratuit -5 km)",
+                urgence: "10000f/h",
+                devis: "Gratuit"
+            }
+        }, {
+            id: 3,
+            name: "Jean-Claude Martin",
+            profession: "Maçon",
+            category: "maconnerie",
+            rating: 4.0,
+            price: 38,
+            location: "Lyon 7ème",
+            distance: 3.8,
+            certified: false,
+            experience: "20 ans d'expérience",
+            description: "Maçon traditionnel avec une expertise reconnue dans la construction et la rénovation. Travail soigné et respect des délais.",
+            services: ["Maçonnerie générale", "Murs de soutènement", "Rénovation façades", "Fondations", "Cloisons", "Enduits"],
+            tarifs: {
+                horaire: "38 €/h",
+                deplacement: "20 €",
+                urgence: "Non disponible",
+                devis: "Gratuit"
+            }
+        }, {
+            id: 4,
+            name: "Antoine Rousseau",
+            profession: "Peintre",
+            category: "peinture",
+            rating: 4.5,
+            price: 42,
+            location: "Caluire-et-Cuire",
+            distance: 6.1,
+            certified: true,
+            experience: "8 ans d'expérience",
+            description: "Peintre en bâtiment spécialisé dans la décoration intérieure et extérieure. Conseils personnalisés et finitions soignées.",
+            services: ["Peinture intérieure", "Peinture extérieure", "Papier peint", "Décoration", "Ravalement façades", "Enduits décoratifs"],
+            tarifs: {
+                horaire: "42 €/h",
+                deplacement: "Gratuit (-15 km)",
+                urgence: "55 €/h",
+                devis: "Gratuit"
+            }
+        }, {
+            id: 5,
+            name: "François Moreau",
+            profession: "Menuisier",
+            category: "menuiserie",
+            rating: 5.0,
+            price: 55,
+            location: "Lyon 6ème",
+            distance: 1.8,
+            certified: false,
+            experience: "18 ans d'expérience",
+            description: "Menuisier artisan passionné par le travail du bois. Création sur mesure et restauration de meubles anciens.",
+            services: ["Mobilier sur mesure", "Agencement", "Parquets", "Escaliers", "Restauration", "Portes et fenêtres"],
+            tarifs: {
+                horaire: "55 €/h",
+                deplacement: "Gratuit (-8 km)",
+                urgence: "Non disponible",
+                devis: "30 € (déduit si accepté)"
+            }
+        }, {
+            id: 6,
+            name: "Olivier Bernard",
+            profession: "Couvreur",
+            category: "couverture",
+            rating: 4.0,
+            price: 48,
+            location: "Bron",
+            distance: 7.3,
+            certified: true,
+            experience: "22 ans d'expérience",
+            description: "Couvreur professionnel spécialisé dans la réfection de toitures et l'isolation. Intervention d'urgence en cas de fuite.",
+            services: ["Réfection toiture", "Isolation", "Gouttières", "Démoussage", "Zinguerie", "Velux"],
+            tarifs: {
+                horaire: "48 €/h",
+                deplacement: "25 €",
+                urgence: "80 €/h",
+                devis: "Gratuit"
+            }
+        }, {
+            id: 7,
+            name: "Sophie Blanchard",
+            profession: "Carreleur",
+            category: "carrelage",
+            rating: 4.8,
+            price: 46,
+            location: "Lyon 2ème",
+            distance: 3.1,
+            certified: true,
+            experience: "10 ans d'expérience",
+            description: "Carreleur expert en pose de carrelage, faïence et mosaïque. Spécialiste des salles de bain et cuisines modernes.",
+            services: ["Pose carrelage", "Faïence", "Mosaïque", "Étanchéité", "Rénovation sols", "Terrasses"],
+            tarifs: {
+                horaire: "46 €/h",
+                deplacement: "Gratuit (-12 km)",
+                urgence: "65 €/h",
+                devis: "Gratuit"
+            }
+        }, {
+            id: 8,
+            name: "Thierry Morel",
+            profession: "Dépanneur",
+            category: "depanneur",
+            rating: 4.2,
+            price: 35,
+            location: "Vénissieux",
+            distance: 8.5,
+            certified: false,
+            experience: "25 ans d'expérience",
+            description: "Dépanneur tous corps d'état. Intervention rapide pour petits travaux et réparations diverses.",
+            services: ["Petits travaux", "Réparations diverses", "Montage meubles", "Fixations", "Serrurerie simple", "Bricolage"],
+            tarifs: {
+                horaire: "35 €/h",
+                deplacement: "15 €",
+                urgence: "50 €/h",
+                devis: "Gratuit"
+            }
+        }, {
+            id: 9,
+            name: "Ahmed Zidane",
+            profession: "Climaticien",
+            category: "climatisation",
+            rating: 4.6,
+            price: 58,
+            location: "Lyon 8ème",
+            distance: 5.7,
+            certified: true,
+            experience: "14 ans d'expérience",
+            description: "Technicien climatisation et chauffage. Installation, maintenance et dépannage de tous systèmes de climatisation.",
+            services: ["Installation climatisation", "Maintenance", "Dépannage", "Pompe à chaleur", "Ventilation", "Désembouage"],
+            tarifs: {
+                horaire: "58 €/h",
+                deplacement: "Gratuit (-10 km)",
+                urgence: "85 €/h",
+                devis: "Gratuit"
+            }
+        }, {
+            id: 10,
+            name: "Karim Benali",
+            profession: "Chauffeur VTC",
+            category: "chauffeur",
+            rating: 4.3,
+            price: 25,
+            location: "Lyon Centre",
+            distance: 2.0,
+            certified: true,
+            experience: "5 ans d'expérience",
+            description: "Chauffeur VTC professionnel, véhicule premium climatisé. Service de qualité pour tous vos déplacements.",
+            services: ["Transport VTC", "Courses", "Aéroport", "Événements", "Livraisons", "Déménagement léger"],
+            tarifs: {
+                horaire: "25 €/h",
+                deplacement: "Prise en charge incluse",
+                urgence: "35 €/h",
+                devis: "Gratuit"
+            }
+        }];
+
+        let filteredArtisans = [...artisans];
+
+        // Fonction pour générer les étoiles
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            let starsHtml = '';
+
+            for (let i = 0; i < fullStars; i++) {
+                starsHtml += '<div class="w-4 h-4 flex items-center justify-center text-yellow-400"><i class="ri-star-fill text-xs"></i></div>';
+            }
+
+            if (hasHalfStar) {
+                starsHtml += '<div class="w-4 h-4 flex items-center justify-center text-yellow-400"><i class="ri-star-half-fill text-xs"></i></div>';
+            }
+
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                starsHtml += '<div class="w-4 h-4 flex items-center justify-center text-gray-300"><i class="ri-star-line text-xs"></i></div>';
+            }
+
+            return starsHtml;
+        }
+
+        // Fonction pour générer une carte d'artisan
+        function generateArtisanCard(artisan) {
+            const certifiedBadge = artisan.certified ?
+                '<div class="w-5 h-5 flex items-center justify-center text-green-500"><i class="ri-verified-badge-fill"></i></div>' : '';
+
+            return `
+        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer artisan-card" data-id="${artisan.id}">
+            <div class="p-6">
+                <div class="flex items-start space-x-4">
+                    <img src="${artisan.image}"
+                        alt="Photo de profil" class="w-16 h-16 rounded-full object-cover object-top">
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-2">
+                            <h3 class="text-lg font-semibold text-gray-900">${artisan.name}</h3>
+                            ${certifiedBadge}
+                        </div>
+                        <p class="text-gray-600">${artisan.profession}</p>
+                        <div class="flex items-center space-x-1 mt-1">
+                            <div class="flex space-x-1">
+                                ${generateStars(artisan.rating)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-gray-600 text-sm mb-2">
+                        <div class="w-4 h-4 flex items-center justify-center mr-2">
+                            <i class="ri-map-pin-line"></i>
+                        </div>
+                        <span>${artisan.location} - ${artisan.distance} km</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-lg font-semibold text-primary">${artisan.price} €/h</span>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors !rounded-button whitespace-nowrap">
+                            Contacter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+        }
+
+        // Fonction pour afficher les artisans
+        function displayArtisans(artisansToShow) {
+            const grid = document.getElementById('artisanGrid');
+            grid.innerHTML = artisansToShow.map(artisan => generateArtisanCard(artisan)).join('');
+
+            // Ajouter les écouteurs d'événements pour les cartes
+            document.querySelectorAll('.artisan-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const artisanId = parseInt(card.getAttribute('data-id'));
+                    showArtisanModal(artisanId);
+                });
+            });
+        }
+
+        // Fonction pour filtrer les artisans
+        function filterArtisans() {
+            const checkedCategories = Array.from(document.querySelectorAll('input[data-filter]:checked')).map(cb => cb.getAttribute('data-filter'));
+            const certifiedOnly = document.getElementById('certifiedOnly').checked;
+
+            filteredArtisans = artisans.filter(artisan => {
+                const categoryMatch = checkedCategories.length === 0 || checkedCategories.includes(artisan.category);
+                const certifiedMatch = !certifiedOnly || artisan.certified;
+                return categoryMatch && certifiedMatch;
+            });
+
+            sortArtisans();
+        }
+
+        // Fonction pour trier les artisans
+        function sortArtisans() {
+            const sortBy = document.getElementById('sortSelect').value;
+
+            switch (sortBy) {
+                case 'price-asc':
+                    filteredArtisans.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    filteredArtisans.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating':
+                    filteredArtisans.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'distance':
+                    filteredArtisans.sort((a, b) => a.distance - b.distance);
+                    break;
+                case 'relevance':
+                default:
+                    // Tri par pertinence : combinaison de note et distance
+                    filteredArtisans.sort((a, b) => {
+                        const scoreA = (a.rating * 2) - (a.distance * 0.1);
+                        const scoreB = (b.rating * 2) - (b.distance * 0.1);
+                        return scoreB - scoreA;
+                    });
+                    break;
+            }
+
+            currentPage = 1;
+            displayPaginatedArtisans();
+        }
+
+        // Fonction pour afficher le modal d'un artisan
+        function showArtisanModal(artisanId) {
+            const artisan = artisans.find(a => a.id === artisanId);
+            if (!artisan) return;
+
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-gray-900">Profil détaillé</h2>
+            <button id="closeModal" class="p-2 hover:bg-gray-100 rounded-lg">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-close-line"></i>
+                </div>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2">
+                <div class="flex items-start space-x-6 mb-8">
+                    <img src="https://readdy.ai/api/search-image?query=Professional%20${artisan.profession}%20portrait&width=120&height=120&seq=profile${artisan.id.toString().padStart(3, '0')}&orientation=squarish"
+                        alt="Photo de profil" class="w-24 h-24 rounded-full object-cover object-top">
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <h3 class="text-2xl font-bold text-gray-900">${artisan.name}</h3>
+                            ${artisan.certified ? '<div class="w-6 h-6 flex items-center justify-center text-green-500"><i class="ri-verified-badge-fill"></i></div>' : ''}
+                        </div>
+                        <p class="text-lg text-gray-600 mb-2">${artisan.profession} professionnel</p>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="flex items-center space-x-1">
+                                <div class="flex space-x-1">
+                                    ${generateStars(artisan.rating)}
+                                </div>
+                            </div>
+                            <div class="flex items-center text-gray-600">
+                                <div class="w-4 h-4 flex items-center justify-center mr-1">
+                                    <i class="ri-map-pin-line"></i>
+                                </div>
+                                <span>${artisan.location}</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">${artisan.experience}</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Disponible</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4">À propos</h4>
+                    <p class="text-gray-600 leading-relaxed">${artisan.description}</p>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Services proposés</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        ${artisan.services.map(service => `
+                            <div class="flex items-center space-x-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-green-500">
+                                    <i class="ri-check-line"></i>
+                                </div>
+                                <span class="text-gray-700">${service}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Galerie de réalisations</h4>
+                    <div class="grid grid-cols-3 gap-4">
+                        <img src="https://readdy.ai/api/search-image?query=${artisan.profession}%20work%20example&width=200&height=150&seq=work${artisan.id}01&orientation=landscape"
+                            alt="Réalisation" class="rounded-lg object-cover object-top h-24">
+                        <img src="https://readdy.ai/api/search-image?query=${artisan.profession}%20professional%20work&width=200&height=150&seq=work${artisan.id}02&orientation=landscape"
+                            alt="Réalisation" class="rounded-lg object-cover object-top h-24">
+                        <img src="https://readdy.ai/api/search-image?query=${artisan.profession}%20quality%20work&width=200&height=150&seq=work${artisan.id}03&orientation=landscape"
+                            alt="Réalisation" class="rounded-lg object-cover object-top h-24">
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Avis clients récents</h4>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                                    S
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Sophie Martineau</p>
+                                    <div class="flex space-x-1">
+                                        ${generateStars(5)}
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">Excellent travail ! ${artisan.name} est arrivé à l'heure, a diagnostiqué le problème rapidement et l'a résolu efficacement. Très professionnel et prix raisonnable.</p>
+                            <p class="text-sm text-gray-500 mt-2">Il y a 2 jours</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                                    M
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Marc Durand</p>
+                                    <div class="flex space-x-1">
+                                        ${generateStars(4)}
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">Travail soigné, conseils pertinents et respect des délais. Je recommande vivement !</p>
+                            <p class="text-sm text-gray-500 mt-2">Il y a 1 semaine</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Tarifs</h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Tarif horaire</span>
+                            <span class="font-semibold text-primary">${artisan.tarifs.horaire}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Déplacement</span>
+                            <span class="font-semibold">${artisan.tarifs.deplacement}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Dépannage urgence</span>
+                            <span class="font-semibold">${artisan.tarifs.urgence}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Devis</span>
+                            <span class="font-semibold text-green-600">${artisan.tarifs.devis}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 p-6 rounded-lg">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-4">Contacter ${artisan.name}</h4>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Type de travaux</label>
+                            <select class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                                ${artisan.services.map(service => `<option value="${service}">${service}</option>`).join('')}
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Description du projet</label>
+                            <textarea rows="4" placeholder="Décrivez votre projet en détail..." class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm resize-none"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Date souhaitée</label>
+                            <input type="date" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Votre téléphone</label>
+                            <input type="tel" placeholder="06 12 34 56 78" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+                        </div>
+                        <div class="flex space-x-2">
+                            <button type="submit" class="flex-1 bg-primary text-white py-3 rounded-lg hover:bg-blue-600 transition-colors !rounded-button whitespace-nowrap">
+                                Envoyer le message
+                            </button>
+                            <button type="button" class="px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="w-5 h-5 flex items-center justify-center">
+                                    <i class="ri-phone-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    `;
+
+            // Afficher le modal
+            document.getElementById('profileModal').classList.remove('hidden');
+
+            // Ajouter l'écouteur pour fermer le modal
+            document.getElementById('closeModal').addEventListener('click', () => {
+                document.getElementById('profileModal').classList.add('hidden');
+            });
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function () {
+            // Affichage initial
+            displayPaginatedArtisans();
+
+            // Écouteurs pour les filtres
+            document.querySelectorAll('input[data-filter]').forEach(checkbox => {
+                checkbox.addEventListener('change', filterArtisans);
+            });
+
+            document.getElementById('certifiedOnly').addEventListener('change', filterArtisans);
+
+            // Écouteur pour le tri
+            document.getElementById('sortSelect').addEventListener('change', sortArtisans);
+
+            // Fermer le modal en cliquant en dehors
+            document.getElementById('profileModal').addEventListener('click', function (e) {
+                if (e.target === this) {
+                    this.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Grille responsive -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+
+                <!-- Logo + description -->
+                <div class="text-center md:text-left">
+                    <div class="text-2xl font-['Pacifico'] text-primary mb-4">FADA-LINK</div>
+                    <p class="text-gray-400 mb-6">
+                        Votre espace numérique hybride pour travailler, apprendre et vous divertir
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-facebook-fill"></i>
+                        </div>
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-twitter-fill"></i>
+                        </div>
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-instagram-fill"></i>
+                        </div>
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-linkedin-fill"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Cybercafé</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Coworking</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Gaming & E-sport</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Formation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Restauration</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tarifs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Réservation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Application Mobile</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Restez informé de nos événements et nouveautés</p>
+                    <form class="flex flex-col sm:flex-row items-center sm:items-stretch">
+                        <input type="email" placeholder="Votre email"
+                            class="flex-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg sm:rounded-l-lg sm:rounded-r-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent mb-3 sm:mb-0">
+                        <button type="submit"
+                            class="bg-primary px-5 py-2 rounded-lg sm:rounded-r-lg sm:rounded-l-none hover:bg-opacity-90 transition-colors flex items-center justify-center">
+                            <i class="ri-send-plane-line"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bas de page -->
+            <div
+                class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2024 FADA-LINK. Tous droits réservés.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-end space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Mentions Légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Politique de
+                        Confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">CGU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script id="modal-functionality">
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('profileModal');
+            const closeModal = document.getElementById('closeModal');
+            const artisanCards = document.querySelectorAll('.artisan-card');
+
+            artisanCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            closeModal.addEventListener('click', function () {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+
+    <script id="checkbox-functionality">
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    const checkIcon = this.nextElementSibling.querySelector('i');
+                    if (this.checked) {
+                        checkIcon.classList.remove('opacity-0');
+                        checkIcon.classList.add('opacity-100');
+                    } else {
+                        checkIcon.classList.remove('opacity-100');
+                        checkIcon.classList.add('opacity-0');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="range-slider-functionality">
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.querySelector('input[type="range"]');
+
+            if (slider) {
+                slider.addEventListener('input', function () {
+                    const value = this.value;
+                    const min = this.min;
+                    const max = this.max;
+                    const percentage = ((value - min) / (max - min)) * 100;
+
+                    this.style.background = `linear-gradient(to right, #57b5e7 0%, #57b5e7 ${percentage}%, #e5e7eb ${percentage}%, #e5e7eb 100%)`;
+                });
+
+                slider.dispatchEvent(new Event('input'));
+            }
+        });
+    </script>
+
+    <script id="star-rating-functionality">
+        document.addEventListener('DOMContentLoaded', function () {
+            const stars = document.querySelectorAll('.star');
+
+            stars.forEach((star, index) => {
+                star.addEventListener('click', function () {
+                    stars.forEach((s, i) => {
+                        const icon = s.querySelector('i');
+                        if (i <= index) {
+                            icon.className = 'ri-star-fill';
+                            s.classList.remove('text-gray-300');
+                            s.classList.add('text-yellow-400');
+                        } else {
+                            icon.className = 'ri-star-line';
+                            s.classList.remove('text-yellow-400');
+                            s.classList.add('text-gray-300');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script src="https://static.readdy.ai/static/share.js"></script>
+</body>
+
+</html>

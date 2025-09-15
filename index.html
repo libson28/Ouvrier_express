@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtisanConnect - Trouvez l'artisan parfait près de chez vous</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#57b5e7',
+                        secondary: '#8dd3c7'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+
+                <!-- Logo -->
+                <div class="flex items-center space-x-8">
+                    <div class="flex text-2xl font-['Pacifico'] text-primary">
+                        <a href="./index.html" class="flex items-center space-x-2">
+                            <img src="logo.gif" style="width: 40px;" alt="">
+                            <span
+                                class="bg-gradient-to-r from-blue-900 to-orange-500 bg-clip-text text-transparent max-w-[420px] truncate">
+                                Ouvrier-Express
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- ✅ Menu desktop centré -->
+                <nav class="hidden md:flex space-x-6 absolute left-1/2 transform -translate-x-1/2">
+                    <a href="./index.html" class="text-gray-700 hover:text-primary transition-colors"
+                        style="color: rgb(0, 140, 255);">Accueil</a>
+                    <a href="./cyber.html" class="text-gray-700 hover:text-primary transition-colors">Nos Profils</a>
+                    <a href="./coworking.html" class="text-gray-700 hover:text-primary transition-colors">Comment ça
+                        marche</a>
+                    <a href="./gaming.html" class="text-gray-700 hover:text-primary transition-colors">Autres
+                        Services</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Burger -->
+                    <button id="burgerBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-menu-line"></i>
+                        </div>
+                    </button>
+
+                    <!-- Connexion -->
+                    <button onclick="window.location.href='./sign.html'"
+                        class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">
+                        Se connecter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ✅ Menu mobile hors du container -->
+    <nav id="mobileMenu"
+        class="hidden fixed top-16 left-0 w-full bg-white shadow-lg flex-col items-start space-y-6 px-6 py-4 z-50 md:hidden">
+        <a href="./index.html" class="text-gray-700 hover:text-primary transition-colors"
+            style="color: rgb(0, 140, 255);">Accueil</a>
+        <a href="./cyber.html" class="text-gray-700 hover:text-primary transition-colors">Nos Profils</a>
+        <a href="./coworking.html" class="text-gray-700 hover:text-primary transition-colors">Comment ça marche</a>
+        <a href="./gaming.html" class="text-gray-700 hover:text-primary transition-colors">Autres Services</a>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const burgerBtn = document.getElementById("burgerBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            burgerBtn.addEventListener("click", function () {
+                mobileMenu.classList.toggle("hidden");
+                mobileMenu.classList.toggle("flex");
+            });
+        });
+    </script>
+
+
+    <main class="">
+        <section id="accueil" class=" parallax w-full min-h-screen pt-20 flex items-center section-animate"
+            style="background-image: url('https://readdy.ai/api/search-image?query=Professional%20African%20American%20workers%20in%20different%20uniforms%2C%20diverse%20team%20of%20skilled%20craftsmen%20and%20service%20providers%2C%20modern%20workplace%20setting%2C%20high-end%20quality%20photography%2C%20soft%20lighting%2C%20showing%20unity%20and%20expertise%2C%20subtle%20blue%20gradient%20background%20that%20perfectly%20blends%20with%20text&width=1200&height=600&seq=hero003&orientation=landscape'); background-size: cover; background-position: center;">
+            <div class="container mx-auto px-6 py-20 w-full">
+                <div class="max-w-3xl bg-white/80 backdrop-blur-sm p-10 rounded-lg shadow-lg">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        L'Excellence des Services Professionnels
+                    </h2>
+                    <p class="text-xl text-gray-700 mb-8">
+                        Une équipe diversifiée d'experts qualifiés pour tous vos besoins : artisanat, déménagement,
+                        nettoyage, et bien plus. Notre engagement : qualité, fiabilité et professionnalisme. </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact"
+                            class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-blue-600 transition-colors shadow-md whitespace-nowrap">
+                            Découvrir
+                            nos services</a>
+                        <a href="#realisations"
+                            class="bg-white text-primary border border-primary px-6 py-3 rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
+                            Devenir
+                            prestataire</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Pourquoi nous choisir ?</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Notre engagement envers l'excellence et la
+                        satisfaction client fait de nous votre partenaire de confiance pour tous vos besoins en
+                        services.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="bg-gray-50 p-8 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <div class="w-8 h-8 flex items-center justify-center text-primary">
+                                <i class="ri-shield-check-line"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Fiabilité garantie</h3>
+                        <p class="text-gray-600">Tous nos prestataires sont rigoureusement sélectionnés et vérifiés pour
+                            garantir des services de haute qualité.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <div class="w-8 h-8 flex items-center justify-center text-primary">
+                                <i class="ri-customer-service-2-line"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Service client premium</h3>
+                        <p class="text-gray-600">Une équipe dédiée à votre écoute 7j/7 pour vous accompagner et répondre
+                            à toutes vos questions.</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-xl text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <div class="w-8 h-8 flex items-center justify-center text-primary">
+                                <i class="ri-wallet-3-line"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Prix transparents</h3>
+                        <p class="text-gray-600">Des tarifs clairs et compétitifs, sans frais cachés. Paiement sécurisé
+                            et garantie satisfaction.</p>
+                    </div>
+                </div>
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Nos services</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Une large gamme de services professionnels pour
+                        répondre à tous vos besoins.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up"
+                    data-aos-duration="1000" data-aos-delay="200">
+                    <div
+                        class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <img src="https://readdy.ai/api/search-image?query=Professional%20moving%20service%20with%20workers%20carefully%20handling%20furniture%20and%20boxes%2C%20modern%20apartment%20interior%2C%20clean%20and%20organized%2C%20professional%20photography%20style&width=400&height=250&seq=service001&orientation=landscape"
+                            alt="Service de déménagement" class="w-full h-48 object-cover object-top">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Déménagement</h3>
+                            <p class="text-gray-600 mb-4">Une équipe expérimentée pour un déménagement sans stress.
+                                Transport sécurisé et manipulation professionnelle de vos biens.</p>
+                            <button class="text-primary hover:text-blue-600 font-medium flex items-center">
+                                En savoir plus
+                                <div class="w-4 h-4 flex items-center justify-center ml-1">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <img src="https://readdy.ai/api/search-image?query=Professional%20cleaning%20service%20team%20working%20in%20a%20modern%20office%20space%2C%20using%20professional%20equipment%2C%20bright%20and%20clean%20environment%2C%20professional%20photography%20style&width=400&height=250&seq=service002&orientation=landscape"
+                            alt="Service de nettoyage" class="w-full h-48 object-cover object-top">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Nettoyage professionnel</h3>
+                            <p class="text-gray-600 mb-4">Services de nettoyage complets pour particuliers et
+                                professionnels. Équipements modernes et produits écologiques.</p>
+                            <button class="text-primary hover:text-blue-600 font-medium flex items-center">
+                                En savoir plus
+                                <div class="w-4 h-4 flex items-center justify-center ml-1">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <img src="https://readdy.ai/api/search-image?query=Event%20ticketing%20and%20concierge%20service%20concept%2C%20modern%20reception%20desk%20with%20digital%20displays%20showing%20events%2C%20professional%20staff%20in%20uniform%2C%20clean%20and%20luxurious%20environment&width=400&height=250&seq=service003&orientation=landscape"
+                            alt="Service de billetterie" class="w-full h-48 object-cover object-top">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Billetterie & Conciergerie</h3>
+                            <p class="text-gray-600 mb-4">Accès privilégié aux événements et service de conciergerie
+                                personnalisé. Disponible 24/7 pour répondre à vos demandes.</p>
+                            <button class="text-primary hover:text-blue-600 font-medium flex items-center">
+                                En savoir plus
+                                <div class="w-4 h-4 flex items-center justify-center ml-1">
+                                    <i class="ri-arrow-right-line"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-20 bg-gray-50 rounded-2xl p-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">Devenez partenaire</h2>
+                            <p class="text-xl text-gray-600 mb-8">Rejoignez notre réseau de professionnels et développez
+                                votre activité. Bénéficiez d'une visibilité accrue et d'outils de gestion performants.
+                            </p>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center text-gray-600">
+                                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                        <i class="ri-check-line"></i>
+                                    </div>
+                                    Accès à une clientèle qualifiée
+                                </li>
+                                <li class="flex items-center text-gray-600">
+                                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                        <i class="ri-check-line"></i>
+                                    </div>
+                                    Outils de gestion professionnels
+                                </li>
+                                <li class="flex items-center text-gray-600">
+                                    <div class="w-5 h-5 flex items-center justify-center text-primary mr-3">
+                                        <i class="ri-check-line"></i>
+                                    </div>
+                                    Support dédié aux partenaires
+                                </li>
+                            </ul>
+                            <button
+                                class="bg-primary text-white px-8 py-4 text-lg rounded-lg hover:bg-blue-600 transition-colors !rounded-button whitespace-nowrap">Devenir
+                                partenaire</button>
+                        </div>
+                        <div>
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20service%20providers%20team%20meeting%2C%20diverse%20group%20of%20skilled%20workers%20in%20uniforms%2C%20modern%20office%20environment%2C%20collaborative%20atmosphere%2C%20professional%20photography%20style&width=500&height=400&seq=partner001&orientation=landscape"
+                                alt="Devenir partenaire" class="w-full rounded-xl">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <section id="contact" class="py-20 bg-gray-50 relative">
+        <div class="container mx-auto px-6 relative z-10" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-6">Contactez-nous</h2>
+            <p class="text-gray-600 text-center max-w-3xl mx-auto mb-12">
+                Vous avez un projet en tête ? N'hésitez pas à nous contacter pour discuter de vos besoins et obtenir un
+                devis personnalisé.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 h-auto">
+                <!-- Formulaire -->
+                <div class="w-full max-w-xl mx-auto bg-white p-8 rounded-lg shadow-sm" data-aos="zoom-in">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Envoyez-nous un message</h3>
+                    <form id="contact-form" class="bg-white p-8 rounded-lg shadow-sm mb-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-800">Formulaire de contact</h3>
+
+                        <div class="space-y-4">
+                            <input id="firstname" type="text" placeholder="Prénom" class="w-full border rounded p-3"
+                                required>
+                            <input id="lastname" type="text" placeholder="Nom" class="w-full border rounded p-3"
+                                required>
+                            <input id="email" type="email" placeholder="Email" class="w-full border rounded p-3"
+                                required>
+                            <input id="subject" type="text" placeholder="Sujet" class="w-full border rounded p-3"
+                                required>
+                            <textarea id="message" rows="4" placeholder="Votre message"
+                                class="w-full border rounded p-3" required></textarea>
+
+                            <label class="flex items-center space-x-2">
+                                <input id="privacy" type="checkbox" class="w-4 h-4">
+                                <span>J’accepte la politique de confidentialité</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="mt-6 w-full bg-primary text-white py-3 rounded-lg">
+                            Envoyer
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Infos de contact + carte -->
+                <div class="w-full max-w-xl mx-auto">
+                    <div class="bg-white p-8 rounded-lg shadow-sm mb-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-800">Informations de contact</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+                                    <i class="ri-map-pin-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Adresse</h4>
+                                    <p class="text-gray-600">Point E<br>4013 Allée Seydou Nourou Tall, Dakar</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+                                    <i class="ri-mail-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Email</h4>
+                                    <p class="text-gray-600">contact@terangaCode.sn</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+                                    <i class="ri-phone-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Téléphone</h4>
+                                    <p class="text-gray-600">77 685 46 65</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 flex items-center justify-center text-primary mr-4">
+                                    <i class="ri-time-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Horaires</h4>
+                                    <p class="text-gray-600">Lundi - Vendredi : 9h - 18h</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="font-medium text-gray-800 mb-4">Suivez-nous</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/company/teranga-code/posts/?feedView=all"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-linkedin-fill"></i>
+                                </a>
+                                <a href="https://x.com/TcodeAkademia"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-twitter-fill"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-facebook-fill"></i>
+                                </a>
+                                <a href="https://www.instagram.com/terangacode?utm_source=ig_web_button_share_sheet&igsh=NHVvMjh0NG5xeGtj"
+                                    class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                                    <i class="ri-instagram-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Google Map responsive -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15437.088592891929!2d-17.47123062068307!3d14.697195778566243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172922e1f283f%3A0x26f341f60ba73d26!2sPoint%20E%2C%20Dakar!5e0!3m2!1sfr!2ssn!4v1749742363596!5m2!1sfr!2ssn"
+                                class="w-full h-full border-0" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script id="contact-form-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contact-form');
+
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const firstname = document.getElementById('firstname').value;
+                const lastname = document.getElementById('lastname').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                const privacy = document.getElementById('privacy').checked;
+
+                if (!firstname || !lastname || !email || !subject || !message) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Champs requis',
+                        text: 'Veuillez remplir tous les champs obligatoires.',
+                    });
+                    return;
+                }
+
+                if (!privacy) {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Confidentialité',
+                        text: 'Veuillez accepter la politique de confidentialité.',
+                    });
+                    return;
+                }
+
+                // Simulation d'envoi du message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Message envoyé !',
+                    text: 'Nous vous répondrons dans les plus brefs délais.',
+                });
+
+                contactForm.reset();
+            });
+        });
+    </script>
+
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Grille responsive -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+
+                <!-- Logo + description -->
+                <div class="text-center md:text-left">
+                    <div class="text-2xl font-['Pacifico'] text-primary mb-4">FADA-LINK</div>
+                    <p class="text-gray-400 mb-6">
+                        Votre espace numérique hybride pour travailler, apprendre et vous divertir
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-facebook-fill"></i>
+                        </div>
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-twitter-fill"></i>
+                        </div>
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-instagram-fill"></i>
+                        </div>
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            <i class="ri-linkedin-fill"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Cybercafé</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Coworking</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Gaming & E-sport</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Formation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Restauration</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tarifs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Réservation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Application Mobile</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Restez informé de nos événements et nouveautés</p>
+                    <form class="flex flex-col sm:flex-row items-center sm:items-stretch">
+                        <input type="email" placeholder="Votre email"
+                            class="flex-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg sm:rounded-l-lg sm:rounded-r-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent mb-3 sm:mb-0">
+                        <button type="submit"
+                            class="bg-primary px-5 py-2 rounded-lg sm:rounded-r-lg sm:rounded-l-none hover:bg-opacity-90 transition-colors flex items-center justify-center">
+                            <i class="ri-send-plane-line"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bas de page -->
+            <div
+                class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2024 FADA-LINK. Tous droits réservés.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-end space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Mentions Légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Politique de
+                        Confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">CGU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                once: true,
+                offset: 100,
+                duration: 800,
+                easing: 'ease-in-out'
+            });
+        });
+    </script>
+
+    <script src="https://static.readdy.ai/static/share.js"></script>
+</body>
+
+</html>

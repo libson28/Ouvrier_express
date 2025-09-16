@@ -11,9 +11,10 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        primary: '#57b5e7',
-                        secondary: '#8dd3c7'
+                     colors: {
+                        primary: '#2563eb',
+                        secondary: '#8dd3c7',
+                        orang: "#e46b08"
                     },
                     borderRadius: {
                         'none': '0px',
@@ -69,12 +70,10 @@
 
                 <!-- ✅ Menu desktop centré -->
                 <nav class="hidden md:flex space-x-6 absolute left-1/2 transform -translate-x-1/2">
-                    <a href="#" class="text-gray-700 hover:text-primary transition-colors"
-                        style="color: rgb(0, 140, 255);">Accueil</a>
-                    <a href="./profils.html" class="text-gray-700 hover:text-primary transition-colors">Nos Profils</a>
-                    <a href="./coworking.html" class="text-gray-700 hover:text-primary transition-colors">Comment ça
-                        marche</a>
-                    <a href="./gaming.html" class="text-gray-700 hover:text-primary transition-colors">Autres
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">Accueil</a>
+                    <a href="./profils.html" class="text-gray-700 hover:text-primary transition-colors text-orang">Nos Profils</a>
+                    <a href="./apropos.html" class="text-gray-700 hover:text-primary transition-colors">A propos</a>
+                    <a href="./services.html" class="text-gray-700 hover:text-primary transition-colors">Autres
                         Services</a>
                 </nav>
 
@@ -117,11 +116,10 @@
     <!-- ✅ Menu mobile hors du container -->
     <nav id="mobileMenu"
         class="hidden fixed top-16 left-0 w-full bg-white shadow-lg flex-col items-start space-y-6 px-6 py-4 z-50 md:hidden">
-        <a href="./index.html" class="text-gray-700 hover:text-primary transition-colors"
-            style="color: rgb(0, 140, 255);">Accueil</a>
-        <a href="./cyber.html" class="text-gray-700 hover:text-primary transition-colors">Nos Profils</a>
-        <a href="./coworking.html" class="text-gray-700 hover:text-primary transition-colors">Comment ça marche</a>
-        <a href="./gaming.html" class="text-gray-700 hover:text-primary transition-colors">Autres Services</a>
+        <a href="./index.html" class="text-gray-700 hover:text-primary transition-colors">Accueil</a>
+        <a href="./profils.html" class="text-gray-700 hover:text-primary transition-colors text-orang">Nos Profils</a>
+        <a href="./apropos.html" class="text-gray-700 hover:text-primary transition-colors">A propos</a>
+        <a href="./services.html" class="text-gray-700 hover:text-primary transition-colors">Autres Services</a>
     </nav>
 
     <script>
@@ -139,8 +137,8 @@
 
 
     <main>
-        <!-- <section class="relative py-20 hero"
-            style="background-image: url('banner.jpg'); background-size: cover; background-position: center;">
+        <!-- <section class="relative py-24 hero"
+            style="background-image: url('banner-removebg-preview.png'); background-size: cover; background-position: center;">
             <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent"></div>
             <div class="relative max-w-7xl mx-auto px-6">
                 <div class="max-w-2xl text-primary">
@@ -153,7 +151,7 @@
             </div>
         </section> -->
 
-        <div class="bg-primary/10 relative py-4 hero mt-16">
+        <div class="bg-orang/10 relative py-4 hero mt-16">
             <marquee direction="left" scrollamount="5">
                   <div class="flex items-center justify-center space-x-2">
                 <div class="w-4 h-4 flex items-center justify-center">
@@ -916,25 +914,35 @@
 
                 <!-- Logo + description -->
                 <div class="text-center md:text-left">
-                    <div class="text-2xl font-['Pacifico'] text-primary mb-4">FADA-LINK</div>
+                    <div class="flex items-center space-x-8">
+                        <div class="flex text-2xl  text-primary">
+                            <a href="./index.html" class="flex items-center space-x-2">
+                                <img src="logo.gif" style="width: 40px;" alt="">
+                                <span class="bg-gradient-to-r from-blue-900 to-orange-500 bg-clip-text text-transparent 
+                                text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold truncate">
+                                    Ouvrier-Express
+                                </span>
+                            </a>
+                        </div>
+                    </div>
                     <p class="text-gray-400 mb-6">
                         Votre espace numérique hybride pour travailler, apprendre et vous divertir
                     </p>
                     <div class="flex justify-center md:justify-start space-x-4">
                         <div
-                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
                             <i class="ri-facebook-fill"></i>
                         </div>
                         <div
-                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
                             <i class="ri-twitter-fill"></i>
                         </div>
                         <div
-                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
                             <i class="ri-instagram-fill"></i>
                         </div>
                         <div
-                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
                             <i class="ri-linkedin-fill"></i>
                         </div>
                     </div>
@@ -944,11 +952,10 @@
                 <div class="text-center md:text-left">
                     <h3 class="text-lg font-semibold mb-4">Services</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Cybercafé</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Coworking</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Gaming & E-sport</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Formation</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Restauration</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Nos profils</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">A propos</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Autres services</a></li>
                     </ul>
                 </div>
 
@@ -957,10 +964,9 @@
                     <h3 class="text-lg font-semibold mb-4">Support</h3>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Politique de confidentialité</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Condition d'utilisation</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Tarifs</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Réservation</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Application Mobile</a></li>
                     </ul>
                 </div>
 
@@ -995,7 +1001,6 @@
             </div>
         </div>
     </footer>
-
 
     <script id="modal-functionality">
         document.addEventListener('DOMContentLoaded', function () {

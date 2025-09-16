@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArtisanConnect - Trouvez l'artisan parfait près de chez vous</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <script>tailwind.config = { theme: { extend: { colors: { primary: '#57b5e7', secondary: '#8dd3c7' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#2563eb', secondary: '#8dd3c7', orang:"#e46b08" }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -55,11 +55,9 @@
 
                 <!-- ✅ Menu desktop centré -->
                 <nav class="hidden md:flex space-x-6 absolute left-1/2 transform -translate-x-1/2">
-                    <a href="#" class="text-gray-700 hover:text-primary transition-colors"
-                        style="color: rgb(0, 140, 255);">Accueil</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors ">Accueil</a>
                     <a href="./profils.html" class="text-gray-700 hover:text-primary transition-colors">Nos Profils</a>
-                    <a href="./coworking.html" class="text-gray-700 hover:text-primary transition-colors">Comment ça
-                        marche</a>
+                    <a href="./coworking.html" class="text-gray-700 hover:text-primary transition-colors text-orang">A propos</a>
                     <a href="./gaming.html" class="text-gray-700 hover:text-primary transition-colors">Autres
                         Services</a>
                 </nav>
@@ -106,7 +104,7 @@
         <a href="./index.html" class="text-gray-700 hover:text-primary transition-colors"
             style="color: rgb(0, 140, 255);">Accueil</a>
         <a href="./cyber.html" class="text-gray-700 hover:text-primary transition-colors">Nos Profils</a>
-        <a href="./coworking.html" class="text-gray-700 hover:text-primary transition-colors">Comment ça marche</a>
+        <a href="./coworking.html" class="text-gray-700 hover:text-primary transition-colors text-orang">A propos</a>
         <a href="./gaming.html" class="text-gray-700 hover:text-primary transition-colors">Autres Services</a>
     </nav>
 
@@ -125,14 +123,14 @@
         <div
             class="relative overflow-hidden bg-gradient-to-br from-primary/10 to-white min-h-[600px] flex items-center">
             <div
-                class="absolute inset-0 bg-[url('https://readdy.ai/api/search-image?query=Modern%20workspace%20with%20professional%20craftsmen%20and%20service%20providers%20collaborating%2C%20natural%20lighting%2C%20architectural%20details%2C%20premium%20corporate%20environment%20with%20warm%20tones%2C%20high-end%20finishes%20and%20equipment%20visible&width=1920&height=1080&seq=hero001&orientation=landscape')] bg-cover bg-center opacity-20">
+                class="absolute inset-0 bg-[url('propos.jpg')] bg-cover bg-center opacity-20">
             </div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-right" data-aos-duration="1200">
                         <h1 class="text-3xl font-bold text-gray-900 mb-8 leading-tight">A propos de nous
                         </h1>
-                        <p class="text-xl text-gray-700 mb-10 leading-relaxed">Découvrez notre réseau d'artisans
+                        <p class="text-xl text-gray-700 mb-10 leading-relaxed">Découvrez notre réseau d'ouvriers
                             qualifiés et professionnels, prêts à réaliser vos projets avec excellence. De la rénovation
                             au dépannage, nous vous connectons aux meilleurs experts près de chez vous.</p>
                         <div class="flex flex-col sm:flex-row gap-4">
@@ -146,7 +144,7 @@
                             <button
                                 class="bg-white text-gray-800 px-8 py-4 text-lg rounded-lg hover:bg-gray-50 transition-all transform hover:scale-105 shadow-md flex items-center justify-center !rounded-button whitespace-nowrap">
                                 <div class="w-5 h-5 flex items-center justify-center mr-2">
-                                    <i class="ri-user-add-line"></i>
+                                    <i class="ri-user-add-linet"></i>
                                 </div>
                                 <span>Devenir partenaire</span>
                             </button>
@@ -154,13 +152,13 @@
                         <div class="mt-12 flex items-center space-x-8">
                             <div class="flex items-center space-x-2">
                                 <div class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md">
-                                    <i class="ri-shield-check-line text-primary text-xl"></i>
+                                    <i class="ri-shield-check-line text-orang text-xl"></i>
                                 </div>
                                 <span class="text-gray-700">Artisans vérifiés</span>
                             </div>
                             <div class="flex items-center space-x-2">
                                 <div class="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md">
-                                    <i class="ri-customer-service-2-line text-primary text-xl"></i>
+                                    <i class="ri-customer-service-2-line text-orang text-xl"></i>
                                 </div>
                                 <span class="text-gray-700">Support 7j/7</span>
                             </div>
@@ -171,7 +169,7 @@
                             <div
                                 class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-transform">
                                 <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                                    <i class="ri-tools-line text-primary text-2xl"></i>
+                                    <i class="ri-tools-line text-orang text-2xl"></i>
                                 </div>
                                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Services Professionnels</h3>
                                 <p class="text-gray-600">Des experts qualifiés pour tous vos besoins</p>
@@ -179,7 +177,7 @@
                             <div
                                 class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-transform mt-8">
                                 <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                                    <i class="ri-time-line text-primary text-2xl"></i>
+                                    <i class="ri-time-line text-orang text-2xl"></i>
                                 </div>
                                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Intervention Rapide</h3>
                                 <p class="text-gray-600">Des artisans disponibles près de chez vous</p>
@@ -187,7 +185,7 @@
                             <div
                                 class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-transform">
                                 <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                                    <i class="ri-shield-star-line text-primary text-2xl"></i>
+                                    <i class="ri-shield-star-line text-orang text-2xl"></i>
                                 </div>
                                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Qualité Garantie</h3>
                                 <p class="text-gray-600">Satisfaction client assurée</p>
@@ -195,7 +193,7 @@
                             <div
                                 class="bg-white rounded-xl shadow-lg p-6 transform hover:scale-105 transition-transform mt-8">
                                 <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                                    <i class="ri-wallet-3-line text-primary text-2xl"></i>
+                                    <i class="ri-wallet-3-line text-orang text-2xl"></i>
                                 </div>
                                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Prix Transparents</h3>
                                 <p class="text-gray-600">Devis gratuits et sans engagement</p>
@@ -218,7 +216,7 @@
                     <div class="bg-gray-50 p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="100">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                             <div class="w-8 h-8 flex items-center justify-center text-primary">
-                                <i class="ri-shield-star-line"></i>
+                                <i class="ri-shield-star-line text-orang"></i>
                             </div>
                         </div>
                         <h3 class="text-xl font-semibold text-gray-900 mb-4">Excellence</h3>
@@ -229,7 +227,7 @@
                     <div class="bg-gray-50 p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                             <div class="w-8 h-8 flex items-center justify-center text-primary">
-                                <i class="ri-heart-line"></i>
+                                <i class="ri-heart-line text-orang"></i>
                             </div>
                         </div>
                         <h3 class="text-xl font-semibold text-gray-900 mb-4">Confiance</h3>
@@ -240,7 +238,7 @@
                     <div class="bg-gray-50 p-8 rounded-xl text-center" data-aos="fade-up" data-aos-delay="300">
                         <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                             <div class="w-8 h-8 flex items-center justify-center text-primary">
-                                <i class="ri-team-line"></i>
+                                <i class="ri-team-line text-orang"></i>
                             </div>
                         </div>
                         <h3 class="text-xl font-semibold text-gray-900 mb-4">Communauté</h3>
@@ -255,25 +253,25 @@
                             <h2 class="text-3xl font-bold text-gray-900 mb-6">Notre Impact</h2>
                             <div class="grid grid-cols-2 gap-8 mb-8">
                                 <div class="text-center">
-                                    <p class="text-4xl font-bold text-primary mb-2">5000+</p>
-                                    <p class="text-gray-600">Artisans Certifiés</p>
+                                    <p class="text-4xl font-bold text-orang mb-2">500+</p>
+                                    <p class="text-gray-600">Ouvriers Certifiés</p>
                                 </div>
                                 <div class="text-center">
-                                    <p class="text-4xl font-bold text-primary mb-2">50000+</p>
+                                    <p class="text-4xl font-bold text-orang mb-2">200+</p>
                                     <p class="text-gray-600">Clients Satisfaits</p>
                                 </div>
                                 <div class="text-center">
-                                    <p class="text-4xl font-bold text-primary mb-2">98%</p>
+                                    <p class="text-4xl font-bold text-orang mb-2">98%</p>
                                     <p class="text-gray-600">Taux de Satisfaction</p>
                                 </div>
                                 <div class="text-center">
-                                    <p class="text-4xl font-bold text-primary mb-2">15+</p>
+                                    <p class="text-4xl font-bold text-orang mb-2">4+</p>
                                     <p class="text-gray-600">Villes Couvertes</p>
                                 </div>
                             </div>
                         </div>
                         <div data-aos="fade-left">
-                            <img src="https://readdy.ai/api/search-image?query=Professional%20craftsmen%20working%20together%20on%20a%20construction%20project%2C%20showing%20teamwork%20and%20expertise%2C%20modern%20tools%20and%20equipment%2C%20clean%20worksite%2C%20natural%20lighting&width=600&height=400&seq=about002&orientation=landscape"
+                            <img src="impact.jpg"
                                 alt="Notre impact" class="rounded-xl w-full">
                         </div>
                     </div>
@@ -285,32 +283,18 @@
                         et au succès de nos artisans partenaires.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-20">
-                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20confident%20female%20CEO%2C%20business%20attire%2C%20warm%20smile%2C%20clean%20background%2C%20corporate%20photography%20style&width=200&height=200&seq=team001&orientation=squarish"
-                            alt="CEO" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover object-top">
-                        <h3 class="text-lg font-semibold text-gray-900">Sarah Laurent</h3>
-                        <p class="text-gray-600">CEO & Fondatrice</p>
-                    </div>
-
-                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20male%20operations%20director%2C%20business%20casual%20attire%2C%20friendly%20expression%2C%20clean%20background%2C%20corporate%20photography%20style&width=200&height=200&seq=team002&orientation=squarish"
-                            alt="COO" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover object-top">
-                        <h3 class="text-lg font-semibold text-gray-900">Thomas Martin</h3>
-                        <p class="text-gray-600">Directeur des Opérations</p>
-                    </div>
-
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-20 mb-20" style="display: flex; justify-content: center;">
                     <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20female%20customer%20relations%20manager%2C%20business%20attire%2C%20welcoming%20smile%2C%20clean%20background%2C%20corporate%20photography%20style&width=200&height=200&seq=team003&orientation=squarish"
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvVNzwyfUhY3r2-hwbraBePAOqk2jcvHCTCQ&s"
                             alt="CRM" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover object-top">
-                        <h3 class="text-lg font-semibold text-gray-900">Marie Dubois</h3>
+                        <h3 class="text-lg font-semibold text-gray-900">Saly cissé</h3>
                         <p class="text-gray-600">Relations Clients</p>
                     </div>
 
                     <div class="text-center" data-aos="fade-up" data-aos-delay="400">
-                        <img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20male%20technical%20director%2C%20casual%20business%20attire%2C%20confident%20look%2C%20clean%20background%2C%20corporate%20photography%20style&width=200&height=200&seq=team004&orientation=squarish"
+                        <img src="data:image/jpeg;base64,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"
                             alt="CTO" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover object-top">
-                        <h3 class="text-lg font-semibold text-gray-900">Lucas Bernard</h3>
+                        <h3 class="text-lg font-semibold text-gray-900">Adama cissé</h3>
                         <p class="text-gray-600">Directeur Technique</p>
                     </div>
                 </div>
@@ -332,7 +316,7 @@
 
     </main>
 
-    <footer class="bg-gray-900 text-white py-16">
+     <footer class="bg-gray-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- Grille responsive -->
@@ -340,25 +324,35 @@
 
                 <!-- Logo + description -->
                 <div class="text-center md:text-left">
-                    <div class="text-2xl font-['Pacifico'] text-primary mb-4">FADA-LINK</div>
+                    <div class="flex items-center space-x-8">
+                        <div class="flex text-2xl  text-primary">
+                            <a href="./index.html" class="flex items-center space-x-2">
+                                <img src="logo.gif" style="width: 40px;" alt="">
+                                <span class="bg-gradient-to-r from-blue-900 to-orange-500 bg-clip-text text-transparent 
+                                text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold truncate">
+                                    Ouvrier-Express
+                                </span>
+                            </a>
+                        </div>
+                    </div>
                     <p class="text-gray-400 mb-6">
                         Votre espace numérique hybride pour travailler, apprendre et vous divertir
                     </p>
                     <div class="flex justify-center md:justify-start space-x-4">
                         <div
-                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
                             <i class="ri-facebook-fill"></i>
                         </div>
                         <div
-                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
                             <i class="ri-twitter-fill"></i>
                         </div>
                         <div
-                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
                             <i class="ri-instagram-fill"></i>
                         </div>
                         <div
-                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors cursor-pointer">
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
                             <i class="ri-linkedin-fill"></i>
                         </div>
                     </div>
@@ -368,11 +362,10 @@
                 <div class="text-center md:text-left">
                     <h3 class="text-lg font-semibold mb-4">Services</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Cybercafé</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Coworking</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Gaming & E-sport</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Formation</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Restauration</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Nos profils</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">A propos</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Autres services</a></li>
                     </ul>
                 </div>
 
@@ -381,10 +374,9 @@
                     <h3 class="text-lg font-semibold mb-4">Support</h3>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Politique de confidentialité</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Condition d'utilisation</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Tarifs</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Réservation</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Application Mobile</a></li>
                     </ul>
                 </div>
 

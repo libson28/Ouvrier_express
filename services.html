@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtisanConnect - Trouvez l'artisan parfait près de chez vous</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#2563eb', secondary: '#8dd3c7', orang:"#e46b08" }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+           /* color: #e46b08; */
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm fixed top-0 left-0 w-full z-50">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+
+                <!-- Logo -->
+                <div class="flex items-center space-x-8">
+                    <div class="flex text-2xl  text-primary">
+                        <a href="./index.html" class="flex items-center space-x-2">
+                            <img src="logo.gif" style="width: 40px;" alt="">
+                            <span class="bg-gradient-to-r from-blue-900 to-orange-500 bg-clip-text text-transparent 
+                                text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold truncate">
+                                Ouvrier-Express
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- ✅ Menu desktop centré -->
+                <nav class="hidden md:flex space-x-6 absolute left-1/2 transform -translate-x-1/2">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors"
+                       >Accueil</a>
+                    <a href="./profils.html" class="text-gray-700 hover:text-primary transition-colors">Nos Profils</a>
+                    <a href="./apropos.html" class="text-gray-700 hover:text-primary transition-colors">A propos</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors text-orang">Autres
+                        Services</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Burger -->
+                    <button id="burgerBtn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-menu-line"></i>
+                        </div>
+                    </button>
+
+                    <!-- Réseaux sociaux -->
+                    <div class="flex space-x-3">
+                        <!-- Twitter -->
+                        <a href="https://twitter.com" target="_blank"
+                            class="w-9 h-9 flex items-center justify-center rounded-lg bg-blue-50 text-blue-500 hover:bg-blue-100 transition-colors">
+                            <i class="ri-twitter-fill text-lg"></i>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://linkedin.com" target="_blank"
+                            class="w-9 h-9 flex items-center justify-center rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors">
+                            <i class="ri-linkedin-fill text-lg"></i>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://instagram.com" target="_blank"
+                            class="w-9 h-9 flex items-center justify-center rounded-lg bg-pink-50 text-pink-500 hover:bg-pink-100 transition-colors">
+                            <i class="ri-instagram-fill text-lg"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ✅ Menu mobile hors du container -->
+    <nav id="mobileMenu"
+        class="hidden fixed top-16 left-0 w-full bg-white shadow-lg flex-col items-start space-y-6 px-6 py-4 z-50 md:hidden">
+        <a href="./index.html" class="text-gray-700 hover:text-primary transition-colors"
+           >Accueil</a>
+        <a href="./profils.html" class="text-gray-700 hover:text-primary transition-colors">Nos Profils</a>
+        <a href="./apropos.html" class="text-gray-700 hover:text-primary transition-colors">A propos</a>
+        <a href="#" class="text-gray-700 hover:text-primary transition-colors text-orang" >Autres Services</a>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const burgerBtn = document.getElementById("burgerBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            burgerBtn.addEventListener("click", function () {
+                mobileMenu.classList.toggle("hidden");
+                mobileMenu.classList.toggle("flex");
+            });
+        });
+    </script>
+    <main class="pt-16">
+        <section class="relative overflow-hidden py-24">
+            <div class="absolute inset-0">
+                <img src="https://readdy.ai/api/search-image?query=Luxurious%20modern%20workspace%20with%20elegant%20design%20elements%2C%20soft%20natural%20lighting%2C%20premium%20materials%2C%20architectural%20details%2C%20warm%20color%20palette%2C%20high-end%20finishes%2C%20minimalist%20aesthetic%2C%20professional%20atmosphere&width=1920&height=800&seq=banner001&orientation=landscape"
+                    alt="Banner" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="w-full flex items-center min-h-[500px]">
+                    <div class="w-1/2" data-aos="fade-right" data-aos-duration="1200">
+                        <h1 class="text-6xl font-bold text-gray-900 mb-8 leading-tight">Services Premium Sur Mesure</h1>
+                        <p class="text-xl text-gray-700 mb-10 leading-relaxed">Découvrez notre gamme exclusive de
+                            services haut de gamme, où l'excellence rencontre vos besoins spécifiques.</p>
+                        <div class="flex items-center space-x-6">
+                            <button
+                                class="bg-primary text-white px-8 py-4 rounded-lg hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center !rounded-button whitespace-nowrap">
+                                <span>Découvrir nos services</span>
+                                <div class="w-5 h-5 flex items-center justify-center ml-2">
+                                    <i class="ri-arrow-right-line text-orang"></i>
+                                </div>
+                            </button>
+                            <div class="flex items-center space-x-4">
+                                <div class="flex -space-x-4">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCvScVTXSLjNUR3nCxuHbjgvsK8bpcbh33ag&s"
+                                        alt="Client" class="w-12 h-12 rounded-full border-2 border-white">
+                                    <img src="data:image/jpeg;base64,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"
+                                        alt="Client" class="w-12 h-12 rounded-full border-2 border-white">
+                                    <img src="data:image/jpeg;base64,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"
+                                        alt="Client" class="w-12 h-12 rounded-full border-2 border-white">
+                                </div>
+                                <div class="text-gray-600">
+                                    <span class="block font-semibold">+100 clients</span>
+                                    <span class="text-sm">nous font confiance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Service de Déménagement</h2>
+                        <p class="text-lg text-gray-600 mb-8">Notre équipe de déménageurs professionnels assure un
+                            service complet et sur mesure pour un déménagement sans stress. De l'emballage au transport,
+                            nous prenons soin de vos biens avec la plus grande attention.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Emballage professionnel et sécurisé
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Transport avec véhicules adaptés
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Montage et démontage des meubles
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Assurance tous risques incluse
+                            </li>
+                        </ul>
+                        <button
+                            class="bg-primary text-white px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors flex items-center !rounded-button whitespace-nowrap">
+                            Demander un devis
+                            <div class="w-5 h-5 flex items-center justify-center ml-2">
+                                <i class="ri-arrow-right-line text-orang"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div data-aos="fade-left">
+                        <img src="https://readdy.ai/api/search-image?query=Professional%20moving%20service%20team%20carefully%20handling%20furniture%20and%20boxes%2C%20modern%20moving%20truck%2C%20organized%20packing%20materials%2C%20clean%20and%20professional%20environment%2C%20premium%20service%20quality&width=600&height=400&seq=moving001&orientation=landscape"
+                            alt="Service de déménagement" class="rounded-xl shadow-lg">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+                    <div class="order-2 md:order-1" data-aos="fade-right">
+                        <img src="https://readdy.ai/api/search-image?query=Professional%20cleaning%20service%20team%20in%20modern%20office%20space%2C%20using%20eco-friendly%20cleaning%20products%20and%20equipment%2C%20bright%20and%20clean%20environment%2C%20premium%20service%20quality&width=600&height=400&seq=cleaning001&orientation=landscape"
+                            alt="Service de nettoyage" class="rounded-xl shadow-lg">
+                    </div>
+                    <div class="order-1 md:order-2" data-aos="fade-left">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Service de Nettoyage</h2>
+                        <p class="text-lg text-gray-600 mb-8">Des solutions de nettoyage professionnelles pour
+                            particuliers et entreprises. Nous utilisons des produits écologiques et des équipements de
+                            pointe pour des résultats impeccables.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Nettoyage régulier ou ponctuel
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Produits écologiques certifiés
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Personnel qualifié et formé
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Disponibilité 7j/7
+                            </li>
+                        </ul>
+                        <button
+                            class="bg-primary text-white px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors flex items-center !rounded-button whitespace-nowrap">
+                            Réserver maintenant
+                            <div class="w-5 h-5 flex items-center justify-center ml-2">
+                                <i class="ri-arrow-right-line text-orang"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Service de Billetterie</h2>
+                        <p class="text-lg text-gray-600 mb-8">Accédez aux meilleurs événements avec notre service de
+                            billetterie premium. Des places privilégiées pour les spectacles, concerts, événements
+                            sportifs et culturels.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Accès prioritaire aux événements
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Places VIP garanties
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Service personnalisé
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Livraison des billets assurée
+                            </li>
+                        </ul>
+                        <button
+                            class="bg-primary text-white px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors flex items-center !rounded-button whitespace-nowrap">
+                            Découvrir les événements
+                            <div class="w-5 h-5 flex items-center justify-center ml-2">
+                                <i class="ri-arrow-right-line text-orang"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div data-aos="fade-left">
+                        <img src="https://readdy.ai/api/search-image?query=Luxury%20event%20ticketing%20service%2C%20digital%20displays%20showing%20premium%20events%2C%20VIP%20access%20cards%2C%20elegant%20concierge%20desk%2C%20high-end%20venue%20atmosphere&width=600&height=400&seq=ticketing001&orientation=landscape"
+                            alt="Service de billetterie" class="rounded-xl shadow-lg">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1" data-aos="fade-right">
+                        <img src="https://readdy.ai/api/search-image?query=Premium%20concierge%20service%20desk%20in%20luxury%20hotel%20lobby%2C%20professional%20staff%20in%20uniforms%2C%20modern%20elegant%20interior%2C%20high-end%20customer%20service%20environment&width=600&height=400&seq=concierge001&orientation=landscape"
+                            alt="Service de conciergerie" class="rounded-xl shadow-lg">
+                    </div>
+                    <div class="order-1 md:order-2" data-aos="fade-left">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Service de Conciergerie</h2>
+                        <p class="text-lg text-gray-600 mb-8">Un service de conciergerie haut de gamme disponible 24/7
+                            pour répondre à toutes vos demandes. De la réservation de restaurants aux services
+                            personnalisés.</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Disponibilité 24h/24, 7j/7
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Service sur mesure
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Réseau de partenaires premium
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <div class="w-6 h-6 flex items-center justify-center text-primary mr-3">
+                                    <i class="ri-check-line text-orang"></i>
+                                </div>
+                                Conciergerie privée
+                            </li>
+                        </ul>
+                        <button
+                            class="bg-primary text-white px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors flex items-center !rounded-button whitespace-nowrap">
+                            Contacter un concierge
+                            <div class="w-5 h-5 flex items-center justify-center ml-2">
+                                <i class="ri-arrow-right-line text-orang"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-24 bg-gray-50 rounded-2xl p-12">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Pourquoi Choisir Nos Services ?</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Une expertise reconnue et un engagement total
+                            pour votre satisfaction.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-white p-8 rounded-xl text-center">
+                            <div
+                                class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <div class="w-8 h-8 flex items-center justify-center text-primary">
+                                    <i class="ri-shield-star-line text-orang"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Qualité Premium</h3>
+                            <p class="text-gray-600">Des services haut de gamme assurés par des professionnels qualifiés
+                                et expérimentés.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl text-center">
+                            <div
+                                class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <div class="w-8 h-8 flex items-center justify-center text-primary">
+                                    <i class="ri-customer-service-2-line text-orang"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Service Personnalisé</h3>
+                            <p class="text-gray-600">Une approche sur mesure pour répondre parfaitement à vos besoins
+                                spécifiques.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl text-center">
+                            <div
+                                class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <div class="w-8 h-8 flex items-center justify-center text-primary">
+                                    <i class="ri-24-hours-line text-orang"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Disponibilité 24/7</h3>
+                            <p class="text-gray-600">Une équipe à votre écoute en permanence pour un service sans
+                                interruption.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+  <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Grille responsive -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+
+                <!-- Logo + description -->
+                <div class="text-center md:text-left">
+                    <div class="flex items-center space-x-8">
+                        <div class="flex text-2xl  text-primary">
+                            <a href="./index.html" class="flex items-center space-x-2">
+                                <img src="logo.gif" style="width: 40px;" alt="">
+                                <span class="bg-gradient-to-r from-blue-900 to-orange-500 bg-clip-text text-transparent 
+                                text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold truncate">
+                                    Ouvrier-Express
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Votre espace numérique hybride pour travailler, apprendre et vous divertir
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
+                            <i class="ri-facebook-fill"></i>
+                        </div>
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
+                            <i class="ri-twitter-fill"></i>
+                        </div>
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
+                            <i class="ri-instagram-fill"></i>
+                        </div>
+                        <div
+                            class="w-9 h-9 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-orang transition-colors cursor-pointer">
+                            <i class="ri-linkedin-fill"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Nos profils</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">A propos</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Autres services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Politique de confidentialité</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Condition d'utilisation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Restez informé de nos événements et nouveautés</p>
+                    <form class="flex flex-col sm:flex-row items-center sm:items-stretch">
+                        <input type="email" placeholder="Votre email"
+                            class="flex-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg sm:rounded-l-lg sm:rounded-r-none text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent mb-3 sm:mb-0">
+                        <button type="submit"
+                            class="bg-primary px-5 py-2 rounded-lg sm:rounded-r-lg sm:rounded-l-none hover:bg-opacity-90 transition-colors flex items-center justify-center">
+                            <i class="ri-send-plane-line"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bas de page -->
+            <div
+                class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2024 FADA-LINK. Tous droits réservés.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-end space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Mentions Légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Politique de
+                        Confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">CGU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                once: true,
+                offset: 100,
+                duration: 800,
+                easing: 'ease-in-out',
+                delay: 100
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCounting(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+            counters.forEach(counter => observer.observe(counter));
+        });
+    </script>
+
+    <script src="https://static.readdy.ai/static/share.js"></script>
+</body>
+
+</html>
